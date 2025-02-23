@@ -15,8 +15,9 @@ func _physics_process(delta: float) -> void:
 	# Handle jump.
 	if Input.is_action_just_pressed("ui_accept"):
 		var laser = laser_template.instantiate()
-		laser.position = $SpawnerLaser.position
-		add_child(laser)
+		laser.global_position = $SpawnerLaser.global_position
+		
+		get_parent().add_child(laser)
 
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.

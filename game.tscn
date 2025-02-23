@@ -1,13 +1,24 @@
-[gd_scene load_steps=4 format=3 uid="uid://iihjgxmf67lh"]
+[gd_scene load_steps=6 format=3 uid="uid://iihjgxmf67lh"]
 
 [ext_resource type="PackedScene" uid="uid://cmnksdd0x6vbr" path="res://parallax_background.tscn" id="1_kdhf8"]
+[ext_resource type="Script" path="res://game.gd" id="1_udtn4"]
 [ext_resource type="PackedScene" uid="uid://hp2id1u88ona" path="res://player.tscn" id="2_ds06e"]
 [ext_resource type="PackedScene" uid="uid://dsaoifgplmtte" path="res://laser.tscn" id="3_6r2y2"]
+[ext_resource type="PackedScene" uid="uid://c0vhudx0yd8ea" path="res://enemy.tscn" id="4_cj1la"]
 
 [node name="game" type="Node2D"]
+script = ExtResource("1_udtn4")
 
 [node name="background" parent="." instance=ExtResource("1_kdhf8")]
 
 [node name="player" parent="." instance=ExtResource("2_ds06e")]
 
 [node name="laser" parent="." instance=ExtResource("3_6r2y2")]
+
+[node name="enemy" parent="." instance=ExtResource("4_cj1la")]
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.75
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
