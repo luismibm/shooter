@@ -1,6 +1,7 @@
 extends Area2D
 
 const SPEED = 700
+var explosion_template = preload("res://explosion.tscn")
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -21,5 +22,9 @@ func _on_visible_on_screen_notifier_2d_screen_exited() -> void:
 
 
 func _on_area_entered(area: Area2D) -> void:
+	var explosion = explosion_template.instantiate()
+	explosion.global_position = global_position
+	get_parent().add_child(explosion)
+	
 	area.queue_free()
 	queue_free()

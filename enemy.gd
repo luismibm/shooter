@@ -1,6 +1,7 @@
 extends Area2D
 
-const SPEED = 600
+const SPEED = 500
+signal game_over
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -17,3 +18,8 @@ func _physics_process(delta: float) -> void:
 
 func _on_visible_on_screen_enabler_2d_screen_exited() -> void:
 	queue_free()
+
+
+func _on_body_entered(body: Node2D) -> void:
+	game_over.emit()
+	body.queue_free()

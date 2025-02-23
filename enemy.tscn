@@ -17,4 +17,5 @@ polygon = PackedVector2Array(-20.5, -42, -33.5, -42, -46.5, -24.4, -46.5, -1.6, 
 
 [node name="VisibleOnScreenEnabler2D" type="VisibleOnScreenEnabler2D" parent="."]
 
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="screen_exited" from="VisibleOnScreenEnabler2D" to="." method="_on_visible_on_screen_enabler_2d_screen_exited"]
