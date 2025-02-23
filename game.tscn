@@ -1,0 +1,13 @@
+[gd_scene load_steps=4 format=3 uid="uid://iihjgxmf67lh"]
+
+[ext_resource type="PackedScene" uid="uid://cmnksdd0x6vbr" path="res://parallax_background.tscn" id="1_kdhf8"]
+[ext_resource type="PackedScene" uid="uid://hp2id1u88ona" path="res://player.tscn" id="2_ds06e"]
+[ext_resource type="PackedScene" uid="uid://dsaoifgplmtte" path="res://laser.tscn" id="3_6r2y2"]
+
+[node name="game" type="Node2D"]
+
+[node name="background" parent="." instance=ExtResource("1_kdhf8")]
+
+[node name="player" parent="." instance=ExtResource("2_ds06e")]
+
+[node name="laser" parent="." instance=ExtResource("3_6r2y2")]
